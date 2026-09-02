@@ -1,4 +1,7 @@
-# Install the formula from this checkout on macOS and Linux and run its test block.
+# Tap this checkout with Homebrew's own setup action, then install the formula
+# and run its test block on macOS and Linux. Homebrew refuses to install a
+# formula from a bare path, and `brew` is not on PATH on the Linux runners,
+# which is why the plain "brew install ./Formula/athena.rb" approach fails.
 name: test
 
 on:
@@ -17,12 +20,16 @@ jobs:
         os: [macos-latest, ubuntu-latest]
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v4
+      - name: Set up Homebrew and tap this repository
+        uses: Homebrew/actions/setup-homebrew@main
+
       - name: Syntax
-        run: ruby -c Formula/athena.rb
-      - name: Install from this checkout
+        run: ruby -c "$(brew --repository athena-intel/athena)/Formula/athena.rb"
+
+      - name: Install
         run: |
-          brew install --formula ./Formula/athena.rb
+          brew install --verbose athena-intel/athena/athena
           athena --version
+
       - name: Formula test block
-        run: brew test --formula ./Formula/athena.rb
+        run: brew test athena-intel/athena/athena

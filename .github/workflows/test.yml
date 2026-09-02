@@ -1,0 +1,28 @@
+# Install the formula from this checkout on macOS and Linux and run its test block.
+name: test
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  install:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Syntax
+        run: ruby -c Formula/athena.rb
+      - name: Install from this checkout
+        run: |
+          brew install --formula ./Formula/athena.rb
+          athena --version
+      - name: Formula test block
+        run: brew test --formula ./Formula/athena.rb

@@ -10,6 +10,10 @@ set -eu
 VERSION="$1"
 SUMS="$2"
 REPO="Athena-Intel/athena-cli"
+# Linux x86_64 ships the static musl build: the gnu tarballs are linked against
+# the glibc of the GitHub runner that built them (2.39 for 0.3.1) and fail on
+# Ubuntu 22.04 / Debian 12 with "GLIBC_2.39 not found". No aarch64 musl build
+# is published yet, so Linux arm64 stays on the gnu tarball.
 
 sum_for() {
   target="$1"
@@ -51,8 +55,8 @@ class Athena < Formula
       sha256 "$(sum_for aarch64-unknown-linux-gnu)"
     end
     on_intel do
-      url "$(url_for x86_64-unknown-linux-gnu)"
-      sha256 "$(sum_for x86_64-unknown-linux-gnu)"
+      url "$(url_for x86_64-unknown-linux-musl)"
+      sha256 "$(sum_for x86_64-unknown-linux-musl)"
     end
   end
 

@@ -22,8 +22,8 @@ class Athena < Formula
       sha256 "77825af06e6b1285d8d49292a10bf73aebf3f213aa4ab0628265ffac894bd291"
     end
     on_intel do
-      url "https://github.com/Athena-Intel/athena-cli/releases/download/v0.3.1/athena-0.3.1-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "2c7b9f5404bd1e009d66a2cc266ef9edd6d8de0115152494d611ef6d1dd1dedd"
+      url "https://github.com/Athena-Intel/athena-cli/releases/download/v0.3.1/athena-0.3.1-x86_64-unknown-linux-musl.tar.gz"
+      sha256 "ec25eec1cddebc4c3e91cb21e37a39a35c22d9ea36b96d926fe867473974a492"
     end
   end
 

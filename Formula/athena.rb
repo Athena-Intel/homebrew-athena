@@ -2,28 +2,28 @@
 class Athena < Formula
   desc "Athena Intelligence command-line interface"
   homepage "https://github.com/Athena-Intel/athena-cli"
-  version "0.7.0"
+  version "0.8.0"
   license "Apache-2.0"
 
   on_macos do
     on_arm do
-      url "https://github.com/Athena-Intel/athena-cli/releases/download/v0.7.0/athena-0.7.0-aarch64-apple-darwin.tar.gz"
-      sha256 "0e26a861bedb54053093aa6586453c977b9901795f520a0db9295bbe32d2f715"
+      url "https://github.com/Athena-Intel/athena-cli/releases/download/v0.8.0/athena-0.8.0-aarch64-apple-darwin.tar.gz"
+      sha256 "267b007f026f81bf04fb2073fe0c82d0f15d948bc514d4c54271aa37825f6cfd"
     end
     on_intel do
-      url "https://github.com/Athena-Intel/athena-cli/releases/download/v0.7.0/athena-0.7.0-x86_64-apple-darwin.tar.gz"
-      sha256 "cb094b003cee6e4524473d298384681c9725fe0cb3797d43eb4e25495934b8d3"
+      url "https://github.com/Athena-Intel/athena-cli/releases/download/v0.8.0/athena-0.8.0-x86_64-apple-darwin.tar.gz"
+      sha256 "88f5de328e08c85e949e230c597e3bbb8ebe318c8d2b0c684f9c203bfe0d8864"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/Athena-Intel/athena-cli/releases/download/v0.7.0/athena-0.7.0-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "1545d329c0d2b4588b8bc9d32f0cdac120b5185e70aae9a1543b0b2a98dab3d9"
+      url "https://github.com/Athena-Intel/athena-cli/releases/download/v0.8.0/athena-0.8.0-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "ea0c8eeeae419789d7af85c1c803a4fcafee2ea8198e05d5d7803cd0ad828ea4"
     end
     on_intel do
-      url "https://github.com/Athena-Intel/athena-cli/releases/download/v0.7.0/athena-0.7.0-x86_64-unknown-linux-musl.tar.gz"
-      sha256 "09dc397be15cce2b817161968b411b4e82b16fc1be6528716de25da2bc672170"
+      url "https://github.com/Athena-Intel/athena-cli/releases/download/v0.8.0/athena-0.8.0-x86_64-unknown-linux-musl.tar.gz"
+      sha256 "60790c5f99edd35aeba1affa4083d97666fdc2f1794175a6c530e062c6a0dac5"
     end
   end
 
